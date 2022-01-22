@@ -1,0 +1,84 @@
+//Brute Force Solution
+//The greatest common divisor (GCD) refers to the greatest positive integer that is a common divisor for a given set of positive integers. 
+//It is also termed as the highest common factor (HCF) or the greatest common factor (GCF). 
+/*
+Example: Find the greatest common divisor of 13 and 48.
+Solution: We will use the below steps to determine the greatest common divisor of (13, 48).
+
+Divisors of 13 are 1, and 13.
+Divisors of 48 are 1, 2, 3, 4, 6, 8, 12, 16, 24 and 48.
+
+The common divisor of 13 and 48 is 1.
+The greatest common divisor of 13 and 48 is 1.
+
+Thus, GCD(13, 48) = 1.
+more examples:
+Input: a=32, b=20
+Output: 4
+Explanation: 4 is the largest factor that divides both of the numbers.
+
+Input: a=140, b=200
+Output: 20
+Explanation: 20 is the largest factor that divides both of the numbers.
+Input: a=100, b=520
+Output: 20
+*/
+//Souce Code:
+#include <bits/stdc++.h>
+using namespace std;
+//Brute force solution 
+int GCD(int A,int B)
+{    
+    int gcd;
+    int c=min(A,B);
+     int i;
+     for(i=c;i>0;i--)  //More efficient then Below Solution 
+     {
+         if((A%i==0)&&(B%i==0))
+         {
+             gcd=i;
+              return gcd;
+         }
+     }
+}
+int GCD1(int A,int B)
+{    
+    int gcd;
+    int c=min(A,B);
+     int i;
+     for(i=1;i<=A && i<=B;i++) //here we start at intial 
+     {
+         if((A%i==0)&&(B%i==0))
+         {
+             gcd=i;
+             
+         }
+     }
+      return gcd;
+}
+
+int main()
+{
+     int A,B;
+     cin>>A;
+     cin>>B;
+   cout<<GCD(A,B);
+    int A1,B1;
+     cin>>A1;
+     cin>>B1;
+   cout<<GCD1(A1,B1)<<"/n";
+     
+     return 0;
+    
+     /*
+     //it is very simple solution sometime it called long division method
+     int div=min(n1,n2);
+     while(n2%m!=0)
+     {
+         int rem=n2%m;
+         n2=div;
+          div=rem;    
+     }
+     cout<<div;   */
+     
+}
