@@ -161,5 +161,5 @@ public class Main
        System.out.println("maximum Value is:"+res[0]+"\nminimum Value is:"+res[1]);
     }
 }
-//
+//Time Complexity is O(n) and Space Complexity is O(1).
 
