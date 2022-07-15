@@ -82,3 +82,158 @@ int main()
      cout<<div;   */
      
 }
+
+/* Java Solutions
+
+//GCD Using Iteration
+//notes:
+////Brute Force Solution
+//The greatest common divisor (GCD) refers to the greatest positive integer that is a common divisor for a given set of positive integers. 
+//It is also termed as the highest common factor (HCF) or the greatest common factor (GCF). 
+/*
+Example: Find the greatest common divisor of 13 and 48.
+Solution: We will use the below steps to determine the greatest common divisor of (13, 48).
+
+Divisors of 13 are 1, and 13.
+Divisors of 48 are 1, 2, 3, 4, 6, 8, 12, 16, 24 and 48.
+
+The common divisor of 13 and 48 is 1.
+The greatest common divisor of 13 and 48 is 1.
+
+Thus, GCD(13, 48) = 1.
+more examples:
+Input: a=32, b=20
+Output: 4
+Explanation: 4 is the largest factor that divides both of the numbers.
+
+Input: a=140, b=200
+Output: 20
+Explanation: 20 is the largest factor that divides both of the numbers.
+Input: a=100, b=520
+Output: 20
+*/
+
+//GCD Using Iteration
+//notes:
+////Brute Force Solution
+//The greatest common divisor (GCD) refers to the greatest positive integer that is a common divisor for a given set of positive integers. 
+//It is also termed as the highest common factor (HCF) or the greatest common factor (GCF). 
+/*
+Example: Find the greatest common divisor of 13 and 48.
+Solution: We will use the below steps to determine the greatest common divisor of (13, 48).
+
+Divisors of 13 are 1, and 13.
+Divisors of 48 are 1, 2, 3, 4, 6, 8, 12, 16, 24 and 48.
+
+The common divisor of 13 and 48 is 1.
+The greatest common divisor of 13 and 48 is 1.
+
+Thus, GCD(13, 48) = 1.
+more examples:
+Input: a=32, b=20
+Output: 4
+Explanation: 4 is the largest factor that divides both of the numbers.
+
+Input: a=140, b=200
+Output: 20
+Explanation: 20 is the largest factor that divides both of the numbers.
+Input: a=100, b=520
+Output: 20
+*/
+
+ public  class Main {
+
+    static int GetGCD(int a ,int b) {
+        int result=0;
+        int min1= Math.min( a,b);
+        int i;
+        //here we were starting a for loop at the end or last
+        //here min1 value  is 25
+        //25,24,.....0
+         //Time Complexity: O(N)
+        //     //Auxiliary Space: O(1)
+        for ( i = min1; i > 0 ; i-- ) {
+           // we are check the a and b are divisible by i
+           //if yes then we return it
+           //because it is max value as we started a loop form end
+            if (a % i == 0 && b % i == 0) {
+                result=i;
+                 break;
+            }
+        }
+        return result;
+    }
+
+
+    //Euclidean algorithms (Basic and Extended)
+    //this is a Basic algorithms solution
+    //Time Complexity: O(min(a,b))
+    //Auxiliary Space: O(min(a,b))
+    static int GetGCD1(int a ,int b) {
+        if(b==0){
+            return a;
+        }
+        return GetGCD1(b,a%b);
+    }
+
+    //Time Complexity: O(min(a,b))
+    //Auxiliary Space: O(min(a,b))
+    static int GetGCD3(int a,int b){
+
+        //As We know all Number is divides 0
+        if(a==0){
+            return a;
+        }
+        if(b==0){
+            return 0;
+        }
+
+        //If Both Number is Equal then GCD would be same ( a or b)
+        //this is the Base case
+        if(a==b){
+            return a;
+        }
+        if(a>b){
+            return GetGCD3 (a-b,b );
+
+        }
+        return GetGCD3 ( a,b-a );  //when b>a then this Function calls
+    }
+
+    static int GetGCD4(int a,int b){
+        while(a % b !=0){
+            int rem =a%b;
+             a=b;
+            b=rem; //divisor=rem;
+//            a=divident;
+//            b=divisor;
+        }
+        return b; //divident
+    }
+
+
+
+
+    public static void main( String[] args ) {
+
+        int a=98;
+        int b=56;
+        int result=GetGCD(a,b);
+        System.out.println ("GCD of "+a+" and "+b+" is:"+result);
+
+        int result1=GetGCD1(a,b);
+        System.out.println ("GCD of "+a+" and "+b+" is:"+result1);
+
+        int result3=GetGCD3(a,b);
+        System.out.println ("GCD of "+a+" and "+b+" is:"+result3);
+
+        int result4=GetGCD4(a,b);
+        System.out.println ("GCD of "+a+" and "+b+" is:"+result4);
+    }
+}
+
+*/
+
+
+
+
